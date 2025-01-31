@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import gerbilPorgyImg from '../assets/gerbil-porgy.png';
+import { PathContext } from '../context/contexts';
 
 type HeaderProps = {
   style: React.CSSProperties;
@@ -12,14 +14,16 @@ const imageStyle: React.CSSProperties = {
 }
 
 const Header = (props: HeaderProps) => {
+  const { setPath } = useContext(PathContext);
+
   return (
-    <a href="/">
+    <div onClick={() => setPath("/")}>
       <header style={props.style}>
         <h1>gerbil</h1>
         <img src={gerbilPorgyImg} style={imageStyle} alt="A gerbil fish hybrid" />
         <h1>porgy</h1>
       </header>
-    </a>
+    </div>
   );
 }
 

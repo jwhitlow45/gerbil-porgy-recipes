@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './App.css'
 
 import Post from './components/Post';
 import PostList from './components/PostList';
 import Header from './components/Header';
+import PathContextProvider from './context/PathContext';
+import { PathContext } from './context/contexts';
+
 
 const headerStyle: React.CSSProperties = {
   display: 'flex',
@@ -31,26 +34,20 @@ const bodyStyle: React.CSSProperties = {
 }
 
 function App() {
-  const [postPath, setPostPath] = useState<string>('');
-  const [showHomePage, setShowHomePage] = useState<boolean>(true);
+
+  const { path } = useContext(PathContext);
+  const [showHomePage, setShowHomePage] = useState(path === '/');
 
   useEffect(() => {
-    const path = window.location.pathname;
-    if (path === '/') {
-      setShowHomePage(true);
-    } else {
-      setShowHomePage(false);
-      setPostPath(path);
-    }
-  }, [postPath]);
-
+    setShowHomePage(path === '/');
+  }, [path]);
 
   return (
     <div>
       <Header style={headerStyle} />
       <div id="body" style={bodyStyle}>
         {showHomePage && <PostList />}
-        {!showHomePage && <Post markdown_file_path={"posts/" + postPath} />}
+        {!showHomePage && <Post markdown_file_path={"posts/" + path} />}
       </div>
     </div>
   );

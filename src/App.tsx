@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react';
 import './App.css'
 
+import Post from './components/Post';
+import PostList from './components/PostList';
+import Header from './components/Header';
+
+const headerStyle: React.CSSProperties = {
+  display: 'flex',
+
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  width: 'fit-content',
+
+  margin: 'auto',
+
+  color: '#7851A9'
+}
+
+const bodyStyle: React.CSSProperties = {
+  // note: width is defined in App.tsx using media queries
+  display: 'flex',
+
+  flexDirection: 'column',
+
+  margin: '0 auto auto auto',
+
+  textAlign: 'left',
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [postPath, setPostPath] = useState<string>('');
+  const [showHomePage, setShowHomePage] = useState<boolean>(true);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === '/') {
+      setShowHomePage(true);
+    } else {
+      setShowHomePage(false);
+      setPostPath(path);
+    }
+  }, [postPath]);
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <Header style={headerStyle} />
+      <div id="body" style={bodyStyle}>
+        {showHomePage && <PostList />}
+        {!showHomePage && <Post markdown_file_path={"posts/" + postPath} />}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App

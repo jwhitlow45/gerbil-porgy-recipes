@@ -6,7 +6,7 @@ type PathContextProps = {
 }
 
 const PathContextProvider = (props: PathContextProps) => {
-    const [path, setPath] = useState<string>('/');
+    const [path, setPath] = useState<string>(window.location.pathname);
 
     useEffect(() => {
         window.history.pushState({}, '', path);

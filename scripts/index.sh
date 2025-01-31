@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Define the source and destination paths
 SOURCE_DIR="./public/posts"

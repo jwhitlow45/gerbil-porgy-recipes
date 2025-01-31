@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "./scripts/index.sh && tsc -b && vite build",
+    "dev": "sh scripts/index.sh && vite",
+    "build": "sh scripts/index.sh && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,7 +13,8 @@
     "@chakra-ui/react": "^3.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-markdown": "^9.0.3"
+    "react-markdown": "^9.0.3",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

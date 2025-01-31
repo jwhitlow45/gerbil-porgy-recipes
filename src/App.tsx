@@ -43,7 +43,7 @@ function App() {
   }, [path]);
 
   return (
-    <div>
+    <div id="app">
       <Header style={headerStyle} />
       <div id="body" style={bodyStyle}>
         {showHomePage && <PostList />}

@@ -4,7 +4,6 @@ import './App.css'
 import Post from './components/Post';
 import PostList from './components/PostList';
 import Header from './components/Header';
-import PathContextProvider from './context/PathContext';
 import { PathContext } from './context/contexts';
 
 
@@ -19,7 +18,8 @@ const headerStyle: React.CSSProperties = {
 
   margin: 'auto',
 
-  color: '#7851A9'
+  color: '#7851A9',
+  cursor: 'pointer',
 }
 
 const bodyStyle: React.CSSProperties = {

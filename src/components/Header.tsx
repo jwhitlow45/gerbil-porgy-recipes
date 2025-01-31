@@ -17,13 +17,11 @@ const Header = (props: HeaderProps) => {
   const { setPath } = useContext(PathContext);
 
   return (
-    <div onClick={() => setPath("/")}>
-      <header style={props.style}>
-        <h1>gerbil</h1>
-        <img src={gerbilPorgyImg} style={imageStyle} alt="A gerbil fish hybrid" />
-        <h1>porgy</h1>
-      </header>
-    </div>
+    <header style={props.style} onClick={() => setPath("/")}>
+      <h1>gerbil</h1>
+      <img src={gerbilPorgyImg} style={imageStyle} alt="A gerbil fish hybrid" />
+      <h1>porgy</h1>
+    </header>
   );
 }
 

@@ -16,7 +16,7 @@ const headerStyle: React.CSSProperties = {
 
   width: 'fit-content',
 
-  margin: 'auto',
+  margin: '2em auto 0 auto',
 
   color: '#7851A9',
   cursor: 'pointer',

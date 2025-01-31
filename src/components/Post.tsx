@@ -17,7 +17,9 @@ const Post = (props: postProps) => {
   }, [props.markdown_file_path])
 
   return (
-    <Markdown>{text}</Markdown>
+    <div style={{ whiteSpace: 'pre-wrap' }}>
+      <Markdown>{text}</Markdown>
+    </div>
   )
 }
 

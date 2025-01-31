@@ -14,7 +14,7 @@ const headerStyle: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
 
-  width: 'fit-content',
+  width: 'min(fit-content, 100vw)',
 
   margin: '2em auto 0 auto',
 

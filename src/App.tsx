@@ -66,7 +66,7 @@ function App() {
   }, [path]);
 
   return (
-    <div id="app">
+    <div id="app" style={{ paddingBottom: '6em' }}>
       {loaded && <>
         <Header style={headerStyle} />
         <div id="body" style={bodyStyle}>

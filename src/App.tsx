@@ -6,6 +6,8 @@ import PostList from './components/PostList';
 import Header from './components/Header';
 import { PathContext } from './context/contexts';
 
+import HeaderImage from './assets/gerbil-porgy.png';
+
 
 const headerStyle: React.CSSProperties = {
   display: 'flex',
@@ -38,17 +40,40 @@ function App() {
   const { path } = useContext(PathContext);
   const [showHomePage, setShowHomePage] = useState(path === '/');
 
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadImage = (src: string): Promise<HTMLImageElement> => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve(img);
+        img.onerror = (err) => reject(err);
+      });
+    };
+
+    loadImage(HeaderImage)
+      .then(() => {
+        setLoaded(true);
+      })
+      .catch((err) => {
+        console.error('Failed to load image', err);
+      });
+  }, []);
+
   useEffect(() => {
     setShowHomePage(path === '/');
   }, [path]);
 
   return (
     <div id="app">
-      <Header style={headerStyle} />
-      <div id="body" style={bodyStyle}>
-        {showHomePage && <PostList />}
-        {!showHomePage && <Post markdown_file_path={"posts/" + path} />}
-      </div>
+      {loaded && <>
+        <Header style={headerStyle} />
+        <div id="body" style={bodyStyle}>
+          {showHomePage && <PostList />}
+          {!showHomePage && <Post markdown_file_path={"posts/" + path} />}
+        </div>
+      </>}
     </div>
   );
 }

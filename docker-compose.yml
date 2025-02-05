@@ -1,12 +1,12 @@
 services:
-  gerbil_porgy_blog:
-    container_name: gerbil_porgy_blog
-    image: gerbil_porgy_blog:latest
+  gerbil_porgy_recipes:
+    container_name: gerbil_porgy_recipes
+    image: gerbil_porgy_recipes:latest
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
     ports:
-      - 45:3000
+      - 806:3000
     restart: always

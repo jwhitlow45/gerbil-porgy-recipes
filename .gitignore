@@ -23,5 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-post_index.json
+recipe_index.json
 .obsidian

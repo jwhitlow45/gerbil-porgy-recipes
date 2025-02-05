@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import './App.css'
 
-import Post from './components/Post';
-import PostList from './components/PostList';
+import Recipe from './components/Recipe';
+import RecipetList from './components/RecipeList';
 import Header from './components/Header';
 import { PathContext } from './context/contexts';
 
@@ -70,8 +70,8 @@ function App() {
       {loaded && <>
         <Header style={headerStyle} />
         <div id="body" style={bodyStyle}>
-          {showHomePage && <PostList />}
-          {!showHomePage && <Post markdown_file_path={"posts/" + path} />}
+          {showHomePage && <RecipetList />}
+          {!showHomePage && <Recipe markdown_file_path={"recipes/" + path} />}
         </div>
       </>}
     </div>

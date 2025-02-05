@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 
-type postProps = {
+type recipeProps = {
   markdown_file_path: string;
 }
 
-const Post = (props: postProps) => {
+const Recipe = (props: recipeProps) => {
   const [text, setText] = useState<string>('')
 
   useEffect(() => {
@@ -23,4 +23,4 @@ const Post = (props: postProps) => {
   )
 }
 
-export default Post;
+export default Recipe;

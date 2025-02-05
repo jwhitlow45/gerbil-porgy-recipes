@@ -20,7 +20,7 @@ const headerStyle: React.CSSProperties = {
 
   margin: '2em auto 0 auto',
 
-  color: '#7851A9',
+  color: '#8866B6',
   cursor: 'pointer',
 }
 

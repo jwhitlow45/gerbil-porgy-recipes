@@ -7,7 +7,7 @@ const ListItemStyle: React.CSSProperties = {
   width: 'fit-content',
 }
 
-const RecipetList = () => {
+const RecipeList = () => {
   const { setPath } = useContext(PathContext);
 
   return (
@@ -26,4 +26,4 @@ const RecipetList = () => {
   );
 };
 
-export default RecipetList;
+export default RecipeList;

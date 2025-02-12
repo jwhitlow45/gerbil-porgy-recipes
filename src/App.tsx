@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import './App.css'
 
 import Recipe from './components/Recipe';
-import RecipetList from './components/RecipeList';
+import RecipeList from './components/RecipeList';
 import Header from './components/Header';
 import { PathContext } from './context/contexts';
 
@@ -70,7 +70,7 @@ function App() {
       {loaded && <>
         <Header style={headerStyle} />
         <div id="body" style={bodyStyle}>
-          {showHomePage && <RecipetList />}
+          {showHomePage && <RecipeList />}
           {!showHomePage && <Recipe markdown_file_path={"recipes/" + path} />}
         </div>
       </>}

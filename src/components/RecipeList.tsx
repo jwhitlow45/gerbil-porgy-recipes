@@ -18,7 +18,7 @@ const RecipeList = () => {
           return b.localeCompare(a);
         }
       ).map((file: string) => (
-        <h2 onClick={() => setPath("/" + file)} style={ListItemStyle}>
+        <h2 key={file} onClick={() => setPath("/" + file)} style={ListItemStyle}>
           {file.replace('.md', '').split('_').join(' ')}
         </h2>
       ))}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type recipeProps = {
   markdown_file_path: string;
@@ -18,7 +19,7 @@ const Recipe = (props: recipeProps) => {
 
   return (
     <div style={{ whiteSpace: 'pre-wrap' }}>
-      <Markdown>{text}</Markdown>
+      <Markdown remarkPlugins={[remarkGfm]}>{text}</Markdown>
     </div>
   )
 }

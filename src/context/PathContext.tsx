@@ -9,8 +9,14 @@ const PathContextProvider = (props: PathContextProps) => {
     const [path, setPath] = useState<string>(window.location.pathname);
 
     useEffect(() => {
-        window.history.pushState({}, '', path);
+        if (path !== window.location.pathname) {
+            window.history.pushState({}, '', path);
+        }
     }, [path]);
+
+    window.onpopstate = () => {
+        setPath(window.location.pathname);
+    }
 
     return (
         <PathContext.Provider value={{ path, setPath }}>
